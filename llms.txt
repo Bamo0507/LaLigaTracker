@@ -1,0 +1,77 @@
+API La Liga Tracker - Documentación de Uso
+
+1. Resumen
+-------------
+Esta API, desarrollada en Go, permite gestionar partidos de fútbol. Se pueden crear, leer, actualizar, eliminar partidos y registrarles goles, tarjetas amarillas y rojas, y tiempo extra (estos aumentan por 1 con cada llamada).
+
+2. Endpoints Principales
+---------------------------
+Base URL: http://localhost:8080
+
+a) Verificación de Conexión
+   - GET /ping
+     Respuesta: { "status": "success", "message": "Pong" }
+
+    Esta se incorporó solo para validar que estuviera levantado el contenedor para el backend.
+
+b) Gestión de Partidos
+   - GET /api/matches
+     Devuelve la lista completa de partidos.
+
+   - POST /api/matches
+     Crea un nuevo partido.
+     Body JSON (ejemplo):
+       {
+         "homeTeam": "Equipo A",
+         "awayTeam": "Equipo B",
+         "matchDate": "2025-03-28"
+       }
+
+   - GET /api/matches/{id}
+     Devuelve los detalles de un partido específico.
+
+   - PUT /api/matches/{id}
+     Actualiza todos los datos de un partido existente.
+     Body JSON (ejemplo):
+       {
+         "homeTeam": "Equipo A Actualizado",
+         "awayTeam": "Equipo B Actualizado",
+         "matchDate": "2025-03-29"
+       }
+
+   - DELETE /api/matches/{id}
+     Elimina el partido con el ID especificado.
+
+3. Endpoints PATCH 
+-------------------------------------------
+Para actualizar eventos específicos del partido, se usan las siguientes rutas:
+
+a) Incrementar Goles
+   - PATCH /api/matches/{id}/goals
+    Incrementa en 1 el contador de goles.
+
+b) Registrar Tarjeta Amarilla
+   - PATCH /api/matches/{id}/yellowcards
+    Incrementa en 1 el contador de tarjetas amarillas.
+
+c) Registrar Tarjeta Roja
+   - PATCH /api/matches/{id}/redcards
+    Incrementa en 1 el contador de tarjetas rojas.
+
+d) Establecer Tiempo Extra
+   - PATCH /api/matches/{id}/extratime
+    Incrementa por 1 el contador de tiempo extra.
+
+4. Ejemplo de Uso con Hoppscotch o Postman
+---------------------------------------------
+a) Para crear un partido, enviar una solicitud POST a:
+    http://localhost:8080/api/matches
+   con el siguiente body:
+    {
+      "homeTeam": "Buenos",
+      "awayTeam": "Dias",
+      "matchDate": "2025-03-03"
+    }
+
+b) Para actualizar goles en un partido con ID 4, enviar una solicitud PATCH a:
+    http://localhost:8080/api/matches/4/goals

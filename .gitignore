@@ -1,0 +1,3 @@
+# Ignorar archivos de configuración de Docker y entorno
+docker-compose.yml
+.env
