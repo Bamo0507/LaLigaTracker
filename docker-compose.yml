@@ -22,9 +22,9 @@ services:
       DB_USER: myuser
       DB_PASSWORD: mypassword
       DB_NAME: mydatabase
-      PORT: "8081"
+      PORT: "8080"
     ports:
-      - "8081:8081"
+      - "8080:8080"
     depends_on:
       - db
 
