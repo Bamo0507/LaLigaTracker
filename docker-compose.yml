@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: my_postgres
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # deja correr el script desde el inicio
+
+  backend:
+    build: .
+    container_name: my_go_backend
+    environment:
+      DB_HOST: db
+      DB_USER: myuser
+      DB_PASSWORD: mypassword
+      DB_NAME: mydatabase
+      PORT: "8081"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
