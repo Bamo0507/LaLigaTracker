@@ -77,4 +77,4 @@ Este proyecto se puede ejecutar con Docker. Para ello:
 
 Se generó una colección en Postman para probar los endpoints de manera sencilla. Cabe mencionar, que la URL base que utilicé fue `http://localhost:8081`, y sobre esta fui probando los diferentes endpoints, al ingresar a la colección, esta URL base se debería modificar a lo que se adapté a sus necesidades.
 
-[Postman Collection](https://bryanmartinez-1008864.postman.co/workspace/Bryan-Martinez's-Workspace~e5d99082-6f3d-4c98-8ac7-9fe0f80a2fd1/collection/43507428-6a4fcdec-9caa-4916-8ac7-aa2eebc7acca?action=share&creator=43507428)
+[Postman Collection](https://bryanmartinez-1008864.postman.co/workspace/Bryan-Martinez's-Workspace~e5d99082-6f3d-4c98-8a3b-9fe0f80a2fd1/collection/43507428-6a4fcdec-9caa-4916-8ac7-aa2eebc7acca?action=share&creator=43507428)
